@@ -12,17 +12,51 @@
         <!-- Menu de navigation -->
         <div class="gt-sm">
           <q-btn
-            v-for="(item, index) in menuItems"
-            :key="index"
-            :to="item.link"
+            to="/documentation"
             flat
             no-caps
             class="menu-link q-px-md"
-            :class="{ 'active-link': $route.path === item.link }"
+            :class="{ 'active-link': $route.path === '/documentation' }"
           >
-            {{ item.label }}
+            Documentation
             <div class="link-indicator" />
           </q-btn>
+          <q-btn
+            icon="login"
+            flat
+            no-caps
+            class="menu-link q-px-md"
+            to="/signin"
+            aria-label="Sign In"
+          />
+          <q-btn
+            icon="person_add"
+            flat
+            no-caps
+            class="menu-link q-px-md"
+            to="/signin"
+            aria-label="Sign Up"
+          />
+          <!-- Sélecteur de langue -->
+          <q-btn-dropdown
+            flat
+            no-caps
+            class="menu-link q-px-md"
+            label="Langue"
+            color="primary"
+          >
+            <q-list>
+              <q-item clickable v-ripple @click="changeLanguage('fr')">
+                <q-item-section>Français</q-item-section>
+              </q-item>
+              <q-item clickable v-ripple @click="changeLanguage('en')">
+                <q-item-section>English</q-item-section>
+              </q-item>
+              <q-item clickable v-ripple @click="changeLanguage('es')">
+                <q-item-section>Español</q-item-section>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown>
         </div>
 
         <!-- Menu mobile -->
@@ -32,6 +66,7 @@
             dense
             round
             icon="menu"
+            color="black"
             class="mobile-menu-btn"
             @click="toggleMobileMenu"
           />
@@ -47,16 +82,35 @@
       class="mobile-menu"
     >
       <q-list padding>
-        <q-item
-          v-for="(item, index) in menuItems"
-          :key="index"
-          :to="item.link"
-          clickable
-          v-ripple
-          class="mobile-menu-item"
-        >
+        <q-item to="/documentation" clickable v-ripple class="mobile-menu-item">
+          <q-item-section>Documentation</q-item-section>
+        </q-item>
+        <q-item to="/signin" clickable v-ripple class="mobile-menu-item">
+          <q-item-section>Sign In</q-item-section>
+        </q-item>
+        <q-item to="/signin" clickable v-ripple class="mobile-menu-item">
+          <q-item-section>Sign Up</q-item-section>
+        </q-item>
+        <q-item clickable v-ripple @click="toggleMobileMenu">
           <q-item-section>
-            {{ item.label }}
+            <q-btn-dropdown
+              flat
+              no-caps
+              label="Langue"
+              color="primary"
+            >
+              <q-list>
+                <q-item clickable v-ripple @click="changeLanguage('fr')">
+                  <q-item-section>Français</q-item-section>
+                </q-item>
+                <q-item clickable v-ripple @click="changeLanguage('en')">
+                  <q-item-section>English</q-item-section>
+                </q-item>
+                <q-item clickable v-ripple @click="changeLanguage('es')">
+                  <q-item-section>Español</q-item-section>
+                </q-item>
+              </q-list>
+            </q-btn-dropdown>
           </q-item-section>
         </q-item>
       </q-list>
@@ -66,9 +120,6 @@
     <q-page-container>
       <router-view />
     </q-page-container>
-
-    <!-- Footer -->
-    
   </q-layout>
 </template>
 
@@ -77,12 +128,11 @@ import { ref } from 'vue'
 
 const mobileMenuOpen = ref(false)
 
-const menuItems = [
-  { label: 'Accueil', link: '/' },
-  { label: 'À propos', link: '/about' },
-  { label: 'Fonctionnalités', link: '/features' },
-  { label: 'Contact', link: '/contact' }
-]
+// Fonction pour changer la langue
+const changeLanguage = (lang) => {
+  console.log(`Langue sélectionnée : ${lang}`)
+  // Implémentez ici la logique pour changer la langue (par exemple, via i18n)
+}
 
 const toggleMobileMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value
@@ -167,25 +217,6 @@ const toggleMobileMenu = () => {
       color: var(--primary-color);
       background: rgba(108, 99, 255, 0.05);
     }
-  }
-}
-
-.footer-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-// Responsive
-@media (max-width: 1024px) {
-  .header-content {
-    padding: 0 20px;
-  }
-}
-
-@media (max-width: 600px) {
-  .header-content {
-    height: 70px;
   }
 }
 </style>

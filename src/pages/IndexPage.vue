@@ -1,137 +1,138 @@
 <template>
-  <q-page class="home-page">
-    <!-- Section Héro -->
-    <section class="hero-section" style="margin-top: -100px;">
-      <div class="content-container">
-        <div class="row items-center">
-          <div class="col-12 col-md-6 text-left">
-            <h1 class="text-h2 text-weight-bold gradient-text q-mb-md">
-              Connectez-vous avec vos proches
-            </h1>
-            <p class="text-h6 text-grey-8 q-mb-xl description-text">
-              Communauté Chat vous offre un espace de communication privé et sécurisé pour tous vos groupes : famille, amis et plus encore.
-            </p>
-            <div class="q-gutter-md">
-              <q-btn
-                unelevated
-                size="lg"
-                class="get-started-btn"
-                label="Commencer maintenant"
-              />
-              <q-btn
-                outline
-                size="lg"
-                class="demo-btn"
-                label="Voir la démo"
-                icon="play_circle"
-              />
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <img src="img/Group Chat-bro.svg" class="hero-image" alt="Communication illustration">
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Section Statistiques -->
-    <section class="stats-section q-py-xl">
-      <div class="content-container">
-        <div class="row q-col-gutter-lg text-center">
-          <div class="col-12 col-sm-4">
-            <div class="stat-card">
-              <div class="text-h3 text-weight-bold gradient-text">10K+</div>
-              <div class="text-subtitle1">Utilisateurs actifs</div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-4">
-            <div class="stat-card">
-              <div class="text-h3 text-weight-bold gradient-text">5M+</div>
-              <div class="text-subtitle1">Messages échangés</div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-4">
-            <div class="stat-card">
-              <div class="text-h3 text-weight-bold gradient-text">99.9%</div>
-              <div class="text-subtitle1">Taux de satisfaction</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section Espaces -->
-    <section class="spaces-section q-py-xl">
-      <div class="content-container">
-        <h2 class="text-h3 text-center text-weight-bold q-mb-xl">
-          Des espaces adaptés à vos besoins
-        </h2>
-        <div class="row q-col-gutter-xl justify-center">
-          <div class="col-12 col-sm-4" v-for="(space, index) in spaces" :key="index">
-            <q-card class="space-card" flat>
-              <q-card-section class="text-center">
-                <q-avatar size="80px" :class="space.class">
-                  <q-icon :name="space.icon" size="40px" />
-                </q-avatar>
-                <h3 class="text-h5 q-mt-md q-mb-sm">{{ space.title }}</h3>
-                <p class="text-body1 text-grey-7">{{ space.description }}</p>
+    <q-page class="home-page">
+      <!-- Section Héro -->
+      <section class="hero-section" style="margin-top: -100px;">
+        <div class="content-container">
+          <div class="row items-center">
+            <div class="col-12 col-md-6 text-left">
+              <h1 class="text-h2 text-weight-bold gradient-text q-mb-md">
+                Connectez-vous avec vos proches
+              </h1>
+              <p class="text-h6 text-grey-8 q-mb-xl description-text">
+                Communauté Chat vous offre un espace de communication privé et sécurisé pour tous vos groupes : famille, amis et plus encore.
+              </p>
+              <div class="q-gutter-md">
                 <q-btn
-                  flat
-                  color="primary"
-                  :label="'En savoir plus sur ' + space.title"
-                  class="q-mt-md"
+                  unelevated
+                  size="lg"
+                  class="get-started-btn"
+                  label="Commencer maintenant"
                 />
-              </q-card-section>
-            </q-card>
+                <q-btn
+                  outline
+                  size="lg"
+                  class="demo-btn"
+                  label="Voir la démo"
+                  icon="play_circle"
+                />
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <img src="img/Group Chat-bro.svg" class="hero-image" alt="Communication illustration">
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Section Fonctionnalités -->
-    <section class="features-section q-py-xl">
-      <div class="content-container">
-        <h2 class="text-h3 text-center text-weight-bold q-mb-xl">
-          Fonctionnalités principales
-        </h2>
-        <div class="row q-col-gutter-xl">
-          <div class="col-12 col-sm-6 col-md-3" v-for="feature in features" :key="feature.title">
-            <q-card class="feature-card" flat bordered>
-              <q-card-section class="text-center">
-                <div class="feature-icon-container">
-                  <q-icon :name="feature.icon" size="40px" class="feature-icon" />
-                </div>
-                <h4 class="text-h6 q-mt-md">{{ feature.title }}</h4>
-                <p class="text-body2 q-mt-sm text-grey-7">{{ feature.caption }}</p>
-              </q-card-section>
-            </q-card>
+      <!-- Section Statistiques -->
+      <section class="stats-section q-py-xl">
+        <div class="content-container">
+          <div class="row q-col-gutter-lg text-center">
+            <div class="col-12 col-sm-4">
+              <div class="stat-card">
+                <div class="text-h3 text-weight-bold gradient-text">10K+</div>
+                <div class="text-subtitle1">Utilisateurs actifs</div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-4">
+              <div class="stat-card">
+                <div class="text-h3 text-weight-bold gradient-text">5M+</div>
+                <div class="text-subtitle1">Messages échangés</div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-4">
+              <div class="stat-card">
+                <div class="text-h3 text-weight-bold gradient-text">99.9%</div>
+                <div class="text-subtitle1">Taux de satisfaction</div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-    </section>
+      <!-- Section Espaces -->
+      <section class="spaces-section q-py-xl">
+        <div class="content-container">
+          <h2 class="text-h3 text-center text-weight-bold q-mb-xl">
+            Des espaces adaptés à vos besoins
+          </h2>
+          <div class="row q-col-gutter-xl justify-center">
+            <div class="col-12 col-sm-4" v-for="(space, index) in spaces" :key="index">
+              <q-card class="space-card" flat>
+                <q-card-section class="text-center">
+                  <q-avatar size="80px" :class="space.class">
+                    <q-icon :name="space.icon" size="40px" />
+                  </q-avatar>
+                  <h3 class="text-h5 q-mt-md q-mb-sm">{{ space.title }}</h3>
+                  <p class="text-body1 text-grey-7">{{ space.description }}</p>
+                  <q-btn
+                    flat
+                    color="primary"
+                    :label="'En savoir plus sur ' + space.title"
+                    class="q-mt-md"
+                  />
+                </q-card-section>
+              </q-card>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <!-- Section CTA -->
-    <section class="cta-section q-py-xl text-center">
-      <div class="content-container">
-        <h2 class="text-h3 text-weight-bold q-mb-md">Prêt à rejoindre la communauté ?</h2>
-        <p class="text-h6 text-grey-8 q-mb-xl">
-          Commencez dès aujourd'hui et découvrez une nouvelle façon de communiquer
-        </p>
-        <q-btn
-          unelevated
-          size="lg"
-          class="get-started-btn"
-          label="Créer un compte gratuitement"
-        />
-      </div>
-    </section>
-   <FooterVue/>
-  </q-page>
+      <!-- Section Fonctionnalités -->
+      <section class="features-section q-py-xl">
+        <div class="content-container">
+          <h2 class="text-h3 text-center text-weight-bold q-mb-xl">
+            Fonctionnalités principales
+          </h2>
+          <div class="row q-col-gutter-xl">
+            <div class="col-12 col-sm-6 col-md-3" v-for="feature in features" :key="feature.title">
+              <q-card class="feature-card" flat bordered>
+                <q-card-section class="text-center">
+                  <div class="feature-icon-container">
+                    <q-icon :name="feature.icon" size="40px" class="feature-icon" />
+                  </div>
+                  <h4 class="text-h6 q-mt-md">{{ feature.title }}</h4>
+                  <p class="text-body2 q-mt-sm text-grey-7">{{ feature.caption }}</p>
+                </q-card-section>
+              </q-card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section CTA -->
+      <section class="cta-section q-py-xl text-center">
+        <div class="content-container">
+          <h2 class="text-h3 text-weight-bold q-mb-md">Prêt à rejoindre la communauté ?</h2>
+          <p class="text-h6 text-grey-8 q-mb-xl">
+            Commencez dès aujourd'hui et découvrez une nouvelle façon de communiquer
+          </p>
+          <q-btn
+            unelevated
+            size="lg"
+            class="get-started-btn"
+            label="Créer un compte gratuitement"
+          />
+        </div>
+      </section>
+    </q-page>
+  <FooterVue/>
 </template>
 
 <script setup>
-import FooterVue from 'src/layouts/FooterVue.vue';
+import MainLayout from 'src/layouts/FooterVue.vue';
+
 const spaces = [
   {
     icon: 'family_restroom',
@@ -151,7 +152,7 @@ const spaces = [
     description: 'Un espace privé et intime pour partager vos moments à deux.',
     class: 'bg-pink-2'
   }
-]
+];
 
 const features = [
   {
@@ -174,7 +175,7 @@ const features = [
     title: 'Organisation',
     caption: 'Planifiez vos événements simplement'
   }
-]
+];
 </script>
 
 <style scoped>
