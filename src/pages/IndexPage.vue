@@ -1,11 +1,83 @@
 <template>
+<q-header elevated class="header-transparent">
+      <q-toolbar class="header-content q-px-xl">
+        <div class="logo-container">
+          <span class="text-h4 text-weight-bold gradient-text">Communauté Chat</span>
+        </div>
+
+        <q-space />
+
+        <!-- Menu de navigation -->
+        <div class="gt-sm">
+          <q-btn
+            to="/documentation"
+            flat
+            no-caps
+            class="menu-link q-px-md"
+            :class="{ 'active-link': $route.path === '/documentation' }"
+          >
+            Documentation
+            <div class="link-indicator" />
+          </q-btn>
+          <q-btn
+            icon="login"
+            flat
+            no-caps
+            class="menu-link q-px-md"
+            to="/signin"
+            aria-label="Sign In"
+          />
+          <q-btn
+            icon="person_add"
+            flat
+            no-caps
+            class="menu-link q-px-md"
+            to="/signin"
+            aria-label="Sign Up"
+          />
+          <!-- Sélecteur de langue -->
+          <q-btn-dropdown
+            flat
+            no-caps
+            class="menu-link q-px-md"
+            label="Langue"
+            color="primary"
+          >
+            <q-list>
+              <q-item clickable v-ripple @click="changeLanguage('fr')">
+                <q-item-section>Français</q-item-section>
+              </q-item>
+              <q-item clickable v-ripple @click="changeLanguage('en')">
+                <q-item-section>English</q-item-section>
+              </q-item>
+              <q-item clickable v-ripple @click="changeLanguage('es')">
+                <q-item-section>Español</q-item-section>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown>
+        </div>
+
+        <!-- Menu mobile -->
+        <div class="lt-md">
+          <q-btn
+            flat
+            dense
+            round
+            icon="menu"
+            color="black"
+            class="mobile-menu-btn"
+            @click="toggleMobileMenu"
+          />
+        </div>
+      </q-toolbar>
+    </q-header>
 
     <q-page class="home-page">
       <!-- Section Héro -->
       <section class="hero-section" style="margin-top: -100px;">
         <div class="content-container">
           <div class="row items-center">
-            <div class="col-12 col-md-6 text-left">
+            <div class="col-12 col-md-6 text-left" style="margin-top: -100px;">
               <h1 class="text-h2 text-weight-bold gradient-text q-mb-md">
                 Connectez-vous avec vos proches
               </h1>
@@ -105,6 +177,7 @@
                   <h4 class="text-h6 q-mt-md">{{ feature.title }}</h4>
                   <p class="text-body2 q-mt-sm text-grey-7">{{ feature.caption }}</p>
                 </q-card-section>
+
               </q-card>
             </div>
           </div>
@@ -127,7 +200,16 @@
         </div>
       </section>
     </q-page>
-  <FooterVue/>
+                    <!-- ✅ Pied de page -->
+    <q-footer class="bg-grey-1 ">
+      <div class="row items-center justify-between">
+        <div>&copy; {{ new Date().getFullYear() }} Communauté Chat. Tous droits réservés.</div>
+        <div class="footer-links">
+          <q-btn flat dense to="/mentions-legales" label="Mentions légales" class="text-grey-7" />
+          <q-btn flat dense to="/contact" label="Contact" class="text-grey-7" />
+        </div>
+      </div>
+    </q-footer>
 </template>
 
 <script setup>

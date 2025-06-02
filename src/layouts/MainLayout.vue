@@ -2,7 +2,7 @@
   <q-layout view="hHh lpR fFf">
     <!-- En-tête (Header) -->
     <q-header elevated class="header-transparent">
-      <q-toolbar class="header-content q-px-xl">
+      <q-toolbar class="">
         <div class="logo-container">
           <span class="text-h5 text-weight-bold gradient-text">Communauté Chat</span>
         </div>
